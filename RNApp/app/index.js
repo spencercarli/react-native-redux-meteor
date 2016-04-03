@@ -5,6 +5,10 @@ import SignOut from './containers/signOut';
 
 import ddpClient from './ddp';
 
+import { Provider } from 'react-redux';
+import createStore from './store';
+const store = createStore();
+
 export default class RNApp extends Component {
   constructor(props) {
     super(props);
@@ -32,7 +36,7 @@ export default class RNApp extends Component {
     this.setState({ signedIn: status });
   }
 
-  render() {
+  renderBody() {
     let { connected, signedIn } = this.state;
     if (connected && signedIn) {
       return (
@@ -48,5 +52,13 @@ export default class RNApp extends Component {
           />
       );
     }
+  }
+
+  render() {
+    return (
+      <Provider store={store}>
+        {this.renderBody()}
+      </Provider>
+    )
   }
 }
