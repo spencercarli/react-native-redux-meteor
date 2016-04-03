@@ -1,0 +1,18 @@
+{
+  "name": "RNApp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "ios": "open ios/RNApp.xcodeproj"
+  },
+  "dependencies": {
+    "ddp-client": "spencercarli/node-ddp-client",
+    "ddp.js": "^2.1.0",
+    "ejson": "^2.1.2",
+    "hash.js": "^1.0.3",
+    "lodash": "^4.5.0",
+    "react": "^0.14.8",
+    "react-native": "^0.22.2"
+  }
+}
