@@ -16,6 +16,10 @@
     "react-native": "^0.22.2",
     "react-redux": "^4.4.1",
     "redux": "^3.3.1",
-    "redux-logger": "^2.6.1"
+    "redux-logger": "^2.6.1",
+    "redux-meteor-ddp": "file:../redux-meteor-ddp"
+  },
+  "devDependencies": {
+    "redux-immutable-state-invariant": "^1.2.2"
   }
 }
