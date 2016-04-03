@@ -4,11 +4,14 @@ import React, {
   Text,
   View
 } from 'react-native';
+import { connect } from 'react-redux';
 
 import Button from '../components/button';
 import ddpClient from '../ddp';
 
-export default class SignOut extends Component {
+import { changeSignInStatus } from '../actions/index';
+
+export class SignOut extends Component {
   constructor(props) {
     super(props);
 
@@ -54,6 +57,14 @@ export default class SignOut extends Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changedSignedIn: (status) => dispatch(changeSignInStatus(status))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(SignOut);
 
 const styles = StyleSheet.create({
   container: {

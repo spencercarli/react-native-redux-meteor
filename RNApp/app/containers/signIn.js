@@ -5,11 +5,14 @@ import React, {
   View,
   TextInput
 } from 'react-native';
+import { connect } from 'react-redux';
 
 import Button from '../components/button';
 import ddpClient from '../ddp';
 
-export default class SignIn extends Component {
+import { changeSignInStatus } from '../actions/index';
+
+export class SignIn extends Component {
   constructor(props) {
     super(props);
 
@@ -97,6 +100,20 @@ export default class SignIn extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    connected: true // this should connect to this.ddp.connected
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changedSignedIn: (status) => dispatch(changeSignInStatus(status))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
 
 const styles = StyleSheet.create({
   container: {
